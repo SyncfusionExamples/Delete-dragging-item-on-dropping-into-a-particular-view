@@ -13,7 +13,11 @@
     </ResourceDictionary>
   </ContentPage.Resources>
 
-  <ContentPage.BindingContext>
+    <ContentPage.Behaviors>
+        <local:Behavior/>
+    </ContentPage.Behaviors>
+    
+    <ContentPage.BindingContext>
     <local:ViewModel />
   </ContentPage.BindingContext>
 
