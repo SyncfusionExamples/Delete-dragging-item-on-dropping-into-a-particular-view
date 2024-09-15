@@ -7,10 +7,10 @@ using Xamarin.Forms;
 
 namespace DragAndDrop
 {
-   public class Behavior : Behavior<SfListView>
+   public class Behavior : Behavior<ContentPage>
     {
         SfListView ListView; Label headerLabel; StackLayout Stack; Label deleteLabel;
-        protected override void OnAttachedTo(SfListView bindable)
+        protected override void OnAttachedTo(ContentPage bindable)
         {
             ListView = bindable.FindByName<SfListView>("listView");
             headerLabel = bindable.FindByName<Label>("headerLabel");
@@ -54,9 +54,13 @@ namespace DragAndDrop
             }
         }
 
-        protected override void OnDetachingFrom(SfListView bindable)
+        protected override void OnDetachingFrom(ContentPage bindable)
         {
             ListView.ItemDragging -= ListView_ItemDragging;
+            ListView = null;
+            headerLabel = null;
+            deleteLabel = null;
+            Stack = null;
             base.OnDetachingFrom(bindable);
         }
 
